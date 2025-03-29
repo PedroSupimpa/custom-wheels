@@ -20,9 +20,9 @@ export default function Dashboard() {
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const { isLogged, token, login, logout } = useAuth();
 
-  const fetchAndUpdateRoulettes = async (authToken: string) => {
+  const fetchAndUpdateRoulettes = async () => {
     try {
-      const data = await fetchRoulettes(10, 0, authToken);
+      const data = await fetchRoulettes(100, 0, token || "");
       setRouletteList1(data.data);
     } catch (error) {
       console.error("Error fetching roulettes", error);
@@ -30,18 +30,10 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-    const storedToken = localStorage.getItem("authToken");
-    if (storedToken) {
-      login(storedToken);
-      fetchAndUpdateRoulettes(storedToken);
+    if (isLogged && token) {
+      fetchAndUpdateRoulettes();
     }
-  }, []);
-
-  useEffect(() => {
-    if (token) {
-      fetchAndUpdateRoulettes(token);
-    }
-  }, [token]);
+  }, [isLogged, token]);
 
   const handleLogout = () => {
     logout();
@@ -49,18 +41,25 @@ export default function Dashboard() {
 
   const handleLoginSuccess = (newToken: string) => {
     login(newToken);
-    fetchAndUpdateRoulettes(newToken);
   };
 
   return (
     <>
-      <div className="sticky top-0 z-50 border-b-2 py-4 px-8 backdrop-blur-sm">
-        <header className="flex justify-end">
-          {isLogged && <Button onClick={handleLogout}>Logout</Button>}
+      <div className="sticky top-0 z-50 border-b-2 py-4 px-8 backdrop-blur-sm bg-white shadow-md">
+        <header className="flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-[#1D3557]">Roleta Premiada</h1>
+          {isLogged && (
+            <Button
+              onClick={handleLogout}
+              className="bg-[#E63946] hover:bg-[#c62b37] text-white"
+            >
+              Logout
+            </Button>
+          )}
         </header>
       </div>
 
-      <div className="container flex justify-center items-start h-auto pt-16">
+      <div className="container flex justify-center items-start h-auto pt-16 bg-[#F1FAEE] min-h-screen">
         {isLogged ? (
           <div className="flex flex-col justify-center items-end gap-5 w-full">
             <RoletaForm
@@ -70,7 +69,7 @@ export default function Dashboard() {
               isEditMode={isEditMode}
               setIsEditMode={setIsEditMode}
               setEditData={setEditData}
-              fetchAndUpdateRoulettes={() => fetchAndUpdateRoulettes(token!)}
+              fetchAndUpdateRoulettes={fetchAndUpdateRoulettes}
             />
             <div className="w-full max-w-[100vw]">
               <RouletteList
@@ -79,11 +78,29 @@ export default function Dashboard() {
                 setIsEditMode={setIsEditMode}
                 rouletteList={rouletteList1}
                 setRouletteList={setRouletteList1}
+                fetchAndUpdateRoulettes={fetchAndUpdateRoulettes}
               />
             </div>
           </div>
         ) : (
-          <Login onLoginSuccess={handleLoginSuccess} />
+          <div className="w-full max-w-md mx-auto">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold mb-2 text-[#1D3557]">
+                Bem-vindo à Roleta Premiada
+              </h1>
+              <p className="text-[#457B9D]">
+                Crie e gerencie roletas personalizadas para suas promoções
+              </p>
+            </div>
+            <Login onLoginSuccess={handleLoginSuccess} />
+            <div className="mt-8 text-center text-sm text-gray-500">
+              <p>
+                Este é um projeto de demonstração. Você pode entrar com qualquer
+                email e senha.
+              </p>
+              <p>Todas as roletas são salvas localmente no seu navegador.</p>
+            </div>
+          </div>
         )}
       </div>
     </>

@@ -6,7 +6,14 @@ import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { z } from "zod";
 import { Button } from "./ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import { Input } from "./ui/input";
 import { useToast } from "./ui/use-toast";
 
@@ -23,9 +30,14 @@ export function Login({ onLoginSuccess }: LoginPros) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>(
+    {},
+  );
   const [isLoading, setIsLoading] = useState(false);
-  const [toastState, setToastState] = useState<{ message: string, type: 'success' | 'error' | 'info' } | null>(null);
+  const [toastState, setToastState] = useState<{
+    message: string;
+    type: "success" | "error" | "info";
+  } | null>(null);
   const { toast } = useToast();
   const { login } = useAuth();
 
@@ -33,13 +45,17 @@ export function Login({ onLoginSuccess }: LoginPros) {
     if (!validateForm()) return;
     setIsLoading(true);
     try {
-      const response = isSignUp ? await userSignUp(email, password) : await userSignIn(email, password);
+      const response = isSignUp
+        ? await userSignUp(email, password)
+        : await userSignIn(email, password);
 
       if (response.status === 200 || response.status === 201) {
         const token = response.data.token;
         login(token);
         setToastState({
-          message: isSignUp ? "Conta criada com sucesso" : "Login efetuado com sucesso",
+          message: isSignUp
+            ? "Conta criada com sucesso"
+            : "Login efetuado com sucesso",
           type: "success",
         });
         if (onLoginSuccess) {
@@ -116,7 +132,9 @@ export function Login({ onLoginSuccess }: LoginPros) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              {errors.email && <span className="text-red-500">{errors.email}</span>}
+              {errors.email && (
+                <span className="text-red-500">{errors.email}</span>
+              )}
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="password">Senha</Label>
@@ -127,19 +145,27 @@ export function Login({ onLoginSuccess }: LoginPros) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {errors.password && <span className="text-red-500">{errors.password}</span>}
+              {errors.password && (
+                <span className="text-red-500">{errors.password}</span>
+              )}
             </div>
           </div>
         </form>
       </CardContent>
       <CardFooter className="flex flex-col justify-between gap-3">
         <Button onClick={() => setIsSignUp(!isSignUp)} disabled={isLoading}>
-          {isSignUp ? "Já tem uma conta? Entrar" : "Não tem uma conta? Cadastre-se"}
+          {isSignUp
+            ? "Já tem uma conta? Entrar"
+            : "Não tem uma conta? Cadastre-se"}
         </Button>
         <Button onClick={handleAction} disabled={isLoading}>
-          {isLoading ? 
-            <Loader2 className="h-[100%] w-[100%] animate-spin" /> 
-            : isSignUp ? "Cadastrar" : "Entrar"}
+          {isLoading ? (
+            <Loader2 className="h-[100%] w-[100%] animate-spin" />
+          ) : isSignUp ? (
+            "Cadastrar"
+          ) : (
+            "Entrar"
+          )}
         </Button>
       </CardFooter>
     </Card>

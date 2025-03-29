@@ -1,5 +1,11 @@
 import { signout } from "@/service/roulette";
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 interface AuthContextProps {
   isLogged: boolean;
@@ -14,6 +20,15 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isLogged, setIsLogged] = useState<boolean>(false);
   const [token, setTokenState] = useState<string | null>(null);
+
+  // Check for existing token on mount
+  useEffect(() => {
+    const storedToken = localStorage.getItem("authToken");
+    if (storedToken) {
+      setTokenState(storedToken);
+      setIsLogged(true);
+    }
+  }, []);
 
   const setToken = (newToken: string) => {
     localStorage.setItem("authToken", newToken);

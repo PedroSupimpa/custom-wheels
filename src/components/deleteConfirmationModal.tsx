@@ -14,15 +14,14 @@ import { Trash } from "lucide-react";
 interface DeleteConfirmationModalProps {
   setConfirmationDelete: () => void;
 }
-  
-export function DeleteConfirmationModal({ setConfirmationDelete }: DeleteConfirmationModalProps) {
+
+export function DeleteConfirmationModal({
+  setConfirmationDelete,
+}: DeleteConfirmationModalProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Trash
-          size={20}
-          className="cursor-pointer"
-        />
+        <Trash size={20} className="cursor-pointer" />
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
@@ -33,7 +32,9 @@ export function DeleteConfirmationModal({ setConfirmationDelete }: DeleteConfirm
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction onClick={setConfirmationDelete}>Confirmar</AlertDialogAction>
+          <AlertDialogAction onClick={setConfirmationDelete}>
+            Confirmar
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

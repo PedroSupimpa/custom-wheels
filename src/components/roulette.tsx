@@ -28,9 +28,11 @@ export function Roulette({ slug, data, spinButton }: RouletteProps) {
 
   const handleSpinClick = () => {
     setTimeout(() => {
-    if (audioRef.current) {
-      audioRef.current.play();
-    }}, 600);
+      if (audioRef.current) {
+        audioRef.current.play();
+      }
+    }, 600);
+
     spinRoulette(slug).then((response) => {
       setPrizeNumber(response.data.result);
       setMustSpin(true);
@@ -65,7 +67,7 @@ export function Roulette({ slug, data, spinButton }: RouletteProps) {
         disableInitialAnimation={true}
       />
       <Button
-        className="rounded-full"
+        className="rounded-full mt-4"
         onClick={handleSpinClick}
         style={{
           backgroundColor: spinButton.background,
@@ -79,17 +81,7 @@ export function Roulette({ slug, data, spinButton }: RouletteProps) {
         <WinModal
           onClose={() => {
             setShowModal(false);
-            const url = data[prizeNumber].confirmationDialog.linkTo;
-            const finalUrl =
-              url.startsWith("http://") || url.startsWith("https://")
-                ? url
-                : `http://${url}`;
-
-            const a = document.createElement("a");
-            a.href = finalUrl;
-            a.target = "_blank";
-            a.rel = "noopener noreferrer";
-            a.click();
+            // No redirect after winning, just close the modal
           }}
           prize={data[prizeNumber].text}
           open={showModal}

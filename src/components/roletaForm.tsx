@@ -56,9 +56,10 @@ interface RoletaFormProps {
 
 const step1Schema = z.object({
   name: z.string().min(1, "Nome da Roleta é obrigatório"),
-  url: z.string()
+  url: z
+    .string()
     .min(1, "URL inválida")
-    .refine(s => !/\s/.test(s), 'Não é permitido espaço em branco!'),
+    .refine((s) => !/\s/.test(s), "Não é permitido espaço em branco!"),
 });
 
 const step2Schema = z.object({
@@ -92,174 +93,184 @@ const confirmationDialogSchema = z.object({
 });
 
 const defaultValues = {
-  title: "O entreterimento perfeito",
+  title: "Roleta Premiada",
   roulette: {
     options: [
       {
-        text: "Sem Bônus",
-        background: "#000000",
+        text: "Sem Prêmio",
+        background: "#E63946",
         percentage: 12,
         confirmationDialog: {
           title: "Poxa, não foi dessa vez!",
-          linkTo: "https://go.aff.playsux.com/8xxf9otg?source_id={{ad.id}}&utm_source=FBAds&utm_medium={{adset.name}}&utm_campaign={{campaign.name}}",
-          subtitle: " Não desista, tente novamente!",
-          buttonText: "QUERO TENTAR DE NOVO",
-          titleColor: "#299e3c",
-          description: "",
-          subtitleColor: "#000000",
-          backgroundColor: "#524e4e",
-          backgroundImage: "https://api.afiliadoplaysux.com/files/1720106724655.png",
+          linkTo: "#",
+          subtitle: "Não desista, tente novamente!",
+          buttonText: "TENTAR NOVAMENTE",
+          titleColor: "#E63946",
+          description: "Continue tentando para ganhar prêmios incríveis!",
+          subtitleColor: "#1D3557",
+          backgroundColor: "#F1FAEE",
+          backgroundImage:
+            "https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=600&q=80",
           buttonTextColor: "#ffffff",
-          buttonBackground: "#388623",
-          descriptionColor: "#1fa82f"
-        }
+          buttonBackground: "#E63946",
+          descriptionColor: "#457B9D",
+        },
       },
       {
-        text: "100%",
-        background: "#20ac3c",
-        percentage: 80,
+        text: "10% OFF",
+        background: "#457B9D",
+        percentage: 30,
         confirmationDialog: {
           title: "Parabéns!",
-          linkTo: "https://go.aff.playsux.com/8xxf9otg?source_id={{ad.id}}&utm_source=FBAds&utm_medium={{adset.name}}&utm_campaign={{campaign.name}}",
-          subtitle: "Você ganhou 100% de bônus na Playsux! Deposite qualquer valor e receba a mesma quantia de bônus na hora!",
-          buttonText: "QUERO RESGATAR MEU PRÊMIO",
-          titleColor: "#15f312",
-          description: "Deposite qualquer valor e receba a mesma quantia de bônus na hora!",
-          subtitleColor: "#000000",
-          backgroundColor: "#524e4e",
-          backgroundImage: "https://api.afiliadoplaysux.com/files/1720106679844.png",
+          linkTo: "#",
+          subtitle: "Você ganhou 10% de desconto na sua próxima compra!",
+          buttonText: "RESGATAR PRÊMIO",
+          titleColor: "#1D3557",
+          description: "Use o código PREMIO10 no checkout.",
+          subtitleColor: "#1D3557",
+          backgroundColor: "#F1FAEE",
+          backgroundImage:
+            "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&q=80",
           buttonTextColor: "#ffffff",
-          buttonBackground: "#388623",
-          descriptionColor: "#1f8e21"
-        }
+          buttonBackground: "#457B9D",
+          descriptionColor: "#457B9D",
+        },
       },
       {
-        text: "200%",
-        background: "#000",
-        percentage: 1,
+        text: "25% OFF",
+        background: "#1D3557",
+        percentage: 15,
         confirmationDialog: {
-          title: "Parabens!",
-          linkTo: "https://go.aff.playsux.com/8xxf9otg?source_id={{ad.id}}&utm_source=FBAds&utm_medium={{adset.name}}&utm_campaign={{campaign.name}}",
-          subtitle: "Você ganhou 200% de bônus na Playsux! Utilize o cupom BONUSDOBRADO e receba 2 vezes esta quantia em bônus na hora!",
-          buttonText: "QUERO RESGATAR MEU PRÊMIO",
-          titleColor: "#23d126",
-          description: "",
-          subtitleColor: "#000000",
-          backgroundColor: "#524e4e",
-          backgroundImage: "https://api.afiliadoplaysux.com/files/1720106689837.png",
+          title: "Parabéns!",
+          linkTo: "#",
+          subtitle: "Você ganhou 25% de desconto na sua próxima compra!",
+          buttonText: "RESGATAR PRÊMIO",
+          titleColor: "#1D3557",
+          description: "Use o código PREMIO25 no checkout.",
+          subtitleColor: "#1D3557",
+          backgroundColor: "#F1FAEE",
+          backgroundImage:
+            "https://images.unsplash.com/photo-1607344645866-009c320c5ab0?w=600&q=80",
           buttonTextColor: "#ffffff",
-          buttonBackground: "#388623",
-          descriptionColor: "#24c63f"
-        }
+          buttonBackground: "#1D3557",
+          descriptionColor: "#457B9D",
+        },
       },
       {
         text: "R$ 5,00",
-        background: "#20ac3c",
-        percentage: 0.7,
+        background: "#A8DADC",
+        percentage: 20,
         confirmationDialog: {
-          title: "Parabens!",
-          linkTo: "https://go.aff.playsux.com/8xxf9otg?source_id={{ad.id}}&utm_source=FBAds&utm_medium={{adset.name}}&utm_campaign={{campaign.name}}",
-          subtitle: "Você ganhou R$5,00 em banca na Playsux!Clique no botão abaixo e utilize o cupom 5GRATRIS tenha acesso agora a este valor!",
-          buttonText: "QUERO RESGATAR MEU PRÊMIO",
-          titleColor: "#22a52b",
-          description: "Clique no botão para resgatar seu prêmio!",
-          subtitleColor: "#000000",
-          backgroundColor: "#524e4e",
-          backgroundImage: "https://api.afiliadoplaysux.com/files/1720106689837.png",
+          title: "Parabéns!",
+          linkTo: "#",
+          subtitle: "Você ganhou R$5,00 de crédito!",
+          buttonText: "RESGATAR PRÊMIO",
+          titleColor: "#1D3557",
+          description: "Use o código CREDITO5 no checkout.",
+          subtitleColor: "#1D3557",
+          backgroundColor: "#F1FAEE",
+          backgroundImage:
+            "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80",
           buttonTextColor: "#ffffff",
-          buttonBackground: "#388623",
-          descriptionColor: "#25b642"
-        }
+          buttonBackground: "#A8DADC",
+          descriptionColor: "#457B9D",
+        },
       },
       {
-        text: "R$ 50,00",
-        background: "#000",
-        percentage: 0.2,
+        text: "R$ 10,00",
+        background: "#1D3557",
+        percentage: 10,
         confirmationDialog: {
-          title: "Parabens!",
-          linkTo: "https://go.aff.playsux.com/8xxf9otg?source_id={{ad.id}}&utm_source=FBAds&utm_medium={{adset.name}}&utm_campaign={{campaign.name}}",
-          subtitle: " Você ganhou R$50,00 em banca na Playsux! Clique no botão abaixo e utilize o cupom GANHE50 tenha acesso agora a este valor!",
-          buttonText: "QUERO RESGATAR MEU PRÊMIO",
-          titleColor: "#27b030",
-          description: "Clique no botão para resgatar seu prêmio!",
-          subtitleColor: "#000000",
-          backgroundColor: "#524e4e",
-          backgroundImage: "https://api.afiliadoplaysux.com/files/1720106703402.png",
+          title: "Parabéns!",
+          linkTo: "#",
+          subtitle: "Você ganhou R$10,00 de crédito!",
+          buttonText: "RESGATAR PRÊMIO",
+          titleColor: "#1D3557",
+          description: "Use o código CREDITO10 no checkout.",
+          subtitleColor: "#1D3557",
+          backgroundColor: "#F1FAEE",
+          backgroundImage:
+            "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=600&q=80",
           buttonTextColor: "#ffffff",
-          buttonBackground: "#388623",
-          descriptionColor: "#119732"
-        }
+          buttonBackground: "#1D3557",
+          descriptionColor: "#457B9D",
+        },
       },
       {
-        text: "R$ 100,00",
-        background: "#20ac3c",
-        percentage: 0.1,
+        text: "R$ 20,00",
+        background: "#457B9D",
+        percentage: 5,
         confirmationDialog: {
-          title: "Parabens!",
-          linkTo: "https://go.aff.playsux.com/8xxf9otg?source_id={{ad.id}}&utm_source=FBAds&utm_medium={{adset.name}}&utm_campaign={{campaign.name}}",
-          subtitle: "  Você ganhou R$100,00 em banca na Playsux! Clique no botão abaixo e utilize o cupom VALEBANCA tenha acesso agora a este valor!",
-          buttonText: "QUERO RESGATAR MEU PRÊMIO",
-          titleColor: "#207e22",
-          description: "",
-          subtitleColor: "#000000",
-          backgroundColor: "#524e4e",
-          backgroundImage: "https://api.afiliadoplaysux.com/files/1720106703402.png",
+          title: "Parabéns!",
+          linkTo: "#",
+          subtitle: "Você ganhou R$20,00 de crédito!",
+          buttonText: "RESGATAR PRÊMIO",
+          titleColor: "#1D3557",
+          description: "Use o código CREDITO20 no checkout.",
+          subtitleColor: "#1D3557",
+          backgroundColor: "#F1FAEE",
+          backgroundImage:
+            "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=600&q=80",
           buttonTextColor: "#ffffff",
-          buttonBackground: "#388623",
-          descriptionColor: "#1ac13c"
-        }
+          buttonBackground: "#457B9D",
+          descriptionColor: "#457B9D",
+        },
       },
       {
-        text: "MOTO 0KM",
-        background: "#000",
-        percentage: 0,
+        text: "FRETE GRÁTIS",
+        background: "#E63946",
+        percentage: 8,
         confirmationDialog: {
-          title: "Parabens!",
-          linkTo: "https://go.aff.playsux.com/8xxf9otg?source_id={{ad.id}}&utm_source=FBAds&utm_medium={{adset.name}}&utm_campaign={{campaign.name}}",
-          subtitle: "Você ganhou uma MOTO 0KM na Playsux! Clique no botão abaixo e utilize o cupom GANHEMOTO tenha acesso agora a este valor!",
-          buttonText: "QUERO RESGATAR MEU PRÊMIO",
-          titleColor: "#207e22",
-          description: "",
-          subtitleColor: "#000000",
-          backgroundColor: "#524e4e",
-          backgroundImage: "https://api.afiliadoplaysux.com/files/1720106703402.png",
+          title: "Parabéns!",
+          linkTo: "#",
+          subtitle: "Você ganhou frete grátis para sua próxima compra!",
+          buttonText: "RESGATAR PRÊMIO",
+          titleColor: "#1D3557",
+          description: "Use o código FRETEGRATIS no checkout.",
+          subtitleColor: "#1D3557",
+          backgroundColor: "#F1FAEE",
+          backgroundImage:
+            "https://images.unsplash.com/photo-1586769852836-bc069f19e1be?w=600&q=80",
           buttonTextColor: "#ffffff",
-          buttonBackground: "#388623",
-          descriptionColor: "#1ac13c"
-        }
+          buttonBackground: "#E63946",
+          descriptionColor: "#457B9D",
+        },
       },
       {
-        text: "IPHONE 15PRO MAX",
-        background: "#20ac3c",
-        percentage: 0,
+        text: "BRINDE SURPRESA",
+        background: "#A8DADC",
+        percentage: 0.5,
         confirmationDialog: {
-          title: "Parabens!",
-          linkTo: "https://go.aff.playsux.com/8xxf9otg?source_id={{ad.id}}&utm_source=FBAds&utm_medium={{adset.name}}&utm_campaign={{campaign.name}}",
-          subtitle: "Você ganhou um IPHONE 15PRO MAX!",
-          buttonText: "QUERO RESGATAR MEU PRÊMIO",
-          titleColor: "#207e22",
-          description: "",
-          subtitleColor: "#000000",
-          backgroundColor: "#524e4e",
-          backgroundImage: "https://api.afiliadoplaysux.com/files/1720106703402.png",
+          title: "Parabéns!",
+          linkTo: "#",
+          subtitle: "Você ganhou um brinde surpresa!",
+          buttonText: "RESGATAR PRÊMIO",
+          titleColor: "#1D3557",
+          description: "Use o código SURPRESA no checkout.",
+          subtitleColor: "#1D3557",
+          backgroundColor: "#F1FAEE",
+          backgroundImage:
+            "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&q=80",
           buttonTextColor: "#ffffff",
-          buttonBackground: "#388623",
-          descriptionColor: "#1ac13c"
-        }
+          buttonBackground: "#A8DADC",
+          descriptionColor: "#457B9D",
+        },
       },
-    ]
+    ],
   },
-  logoImage: "https://api.afiliadoplaysux.com/files/1720106757408.png",
-  colorTitle: "#ffffff",
+  logoImage:
+    "https://images.unsplash.com/photo-1596367407372-96cb88503db6?w=300&q=80",
+  colorTitle: "#1D3557",
   spinButton: {
-    text: "Resgatar Premios",
-    textColor: "#f2f2f2",
-    background: "#06d402"
+    text: "Girar Roleta",
+    textColor: "#ffffff",
+    background: "#E63946",
   },
-  description: "Gire a roda e ganhe premios",
-  backgroundColor: "",
-  backgroundImage: "https://api.afiliadoplaysux.com/files/1719929844470.png",
-  colorDescription: "#80e65b"
+  description: "Gire a roleta e ganhe prêmios incríveis!",
+  backgroundColor: "#F1FAEE",
+  backgroundImage:
+    "https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=800&q=80",
+  colorDescription: "#457B9D",
 };
 
 export function RoletaForm({
@@ -278,25 +289,34 @@ export function RoletaForm({
   const [optionProbability, setOptionProbability] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState<number | null>(null);
   const [filledOptions, setFilledOptions] = useState<boolean[]>([]);
-  const [faviconUrl, setFaviconUrl] = useState<string>("https://api.afiliadoplaysux.com/files/1720106647387.png");
+  const [faviconUrl, setFaviconUrl] = useState<string>(
+    "https://images.unsplash.com/photo-1596367407372-96cb88503db6?w=100&q=80",
+  );
   const [backgroundImageUrl, setBackgroundImageUrl] = useState<string>("");
   const [logoImageUrl, setLogoImageUrl] = useState<string>("");
   const [confirmationBackgroundImageUrl, setConfirmationBackgroundImageUrl] =
     useState<string>("");
 
   const [step1Data, setStep1Data] = useState<RouletteForm1 | null>(null);
-  const [step2Data, setStep2Data] = useState<RouletteForm2 | null>(defaultValues); 
-  const [options, setOptions] = useState<PrizeOption[]>(defaultValues.roulette.options); 
+  const [step2Data, setStep2Data] = useState<RouletteForm2 | null>(
+    defaultValues,
+  );
+  const [options, setOptions] = useState<PrizeOption[]>(
+    defaultValues.roulette.options,
+  );
   const [selectedOption, setSelectedOption] =
     useState<RouletteConfirmationDialog>();
 
-  const [toastState, setToastState] = useState<{ message: string, type: 'success' | 'error' | 'info' } | null>(null);
+  const [toastState, setToastState] = useState<{
+    message: string;
+    type: "success" | "error" | "info";
+  } | null>(null);
   const { toast } = useToast();
 
   const [editIndex, setEditIndex] = useState<number | null>(null);
-  const [editText, setEditText] = useState('');
-  const [editProbability, setEditProbability] = useState('');
-  const [editColor, setEditColor] = useState('');
+  const [editText, setEditText] = useState("");
+  const [editProbability, setEditProbability] = useState("");
+  const [editColor, setEditColor] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -306,7 +326,7 @@ export function RoletaForm({
 
   const handleFileUpload = async (
     event: ChangeEvent<HTMLInputElement>,
-    setImageUrl: (url: string) => void
+    setImageUrl: (url: string) => void,
   ) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -373,11 +393,12 @@ export function RoletaForm({
             !!(
               option.confirmationDialog.title !== "Parabens!" &&
               option.confirmationDialog.subtitle !== "Você ganhou!" &&
-              option.confirmationDialog.description !== "Clique no botão para resgatar seu prêmio!" &&
+              option.confirmationDialog.description !==
+                "Clique no botão para resgatar seu prêmio!" &&
               option.confirmationDialog.buttonText !== "Resgatar" &&
               option.confirmationDialog.linkTo !== "https://playsux.com/"
-            )
-        )
+            ),
+        ),
       );
       resetStep1({
         name: editData.title,
@@ -454,10 +475,10 @@ export function RoletaForm({
   };
 
   const onSubmitStep2 = async (data: any) => {
-    setIsLoading(true); 
+    setIsLoading(true);
     if (!step1Data) {
       console.error("Step 1 data is missing");
-      setIsLoading(false); 
+      setIsLoading(false);
       return;
     }
 
@@ -482,9 +503,17 @@ export function RoletaForm({
 
     try {
       if (isEditMode) {
-        const response = await updateRoulette(editData?.slug ?? "", step1Data, token || "");
+        const response = await updateRoulette(
+          editData?.slug ?? "",
+          step1Data,
+          token || "",
+        );
         if (response.status === 200) {
-          await updateRouletteCustomization(step1Data.slug, finalData, token || "");
+          await updateRouletteCustomization(
+            step1Data.slug,
+            finalData,
+            token || "",
+          );
           setIsOpenForm(false);
           setToastState({
             message: "Roleta atualizada com sucesso!",
@@ -501,7 +530,11 @@ export function RoletaForm({
       } else {
         const response = await upsertRoulette(step1Data, token || "");
         if (response.status === 201) {
-          await upsertRouletteCustomization(step1Data.slug, finalData, token || "");
+          await upsertRouletteCustomization(
+            step1Data.slug,
+            finalData,
+            token || "",
+          );
           setIsOpenForm(false);
           setToastState({
             message: "Roleta adicionada com sucesso!",
@@ -641,7 +674,8 @@ export function RoletaForm({
     resetStep1({
       name: "",
       url: "",
-      favicon: "https://api.afiliadoplaysux.com/files/1720106647387.png",
+      favicon:
+        "https://images.unsplash.com/photo-1596367407372-96cb88503db6?w=100&q=80",
     });
 
     resetStep2({
@@ -678,10 +712,12 @@ export function RoletaForm({
     setConfirmationBackgroundImageUrl("");
     setLogoImageUrl(defaultValues.logoImage);
     setBackgroundImageUrl(defaultValues.backgroundImage);
-    setFaviconUrl("https://api.afiliadoplaysux.com/files/1720106647387.png");
+    setFaviconUrl(
+      "https://images.unsplash.com/photo-1596367407372-96cb88503db6?w=100&q=80",
+    );
     setStep1Data(null);
-    setStep2Data(defaultValues); 
-    setOptions(defaultValues.roulette.options); 
+    setStep2Data(defaultValues);
+    setOptions(defaultValues.roulette.options);
   };
 
   const draggingItem = useRef<number | null>(null);
@@ -727,9 +763,9 @@ export function RoletaForm({
     };
     setOptions(updatedOptions);
     setEditIndex(null);
-    setEditText('');
-    setEditProbability('');
-    setEditColor('');
+    setEditText("");
+    setEditProbability("");
+    setEditColor("");
   };
 
   useEffect(() => {
@@ -741,7 +777,6 @@ export function RoletaForm({
       setToastState(null);
     }
   }, [toastState, toast]);
-
 
   const [isGrabbing, setIsGrabbing] = useState(false);
 
@@ -764,21 +799,24 @@ export function RoletaForm({
               setIsEditMode(false);
               setIsOpenForm(true);
             }}
+            className="bg-[#E63946] hover:bg-[#c62b37] text-white"
           >
             Adicionar roleta
           </Button>
           <DialogContent className="max-w-[100vw] sm:max-w-[625px] max-h-[90vh] overflow-auto">
             <DialogHeader>
-              <DialogTitle>
+              <DialogTitle className="text-[#1D3557]">
                 {isEditMode ? "Editar roleta" : "Criar nova roleta"}
               </DialogTitle>
               <DialogDescription>
-                <p>
+                <p className="text-[#457B9D]">
                   {isEditMode
                     ? "Edite sua roleta personalizada."
                     : "Crie sua nova roleta personalizada."}
                 </p>
-                <p>Clique no botão para ir para os próximos passos.</p>
+                <p className="text-[#457B9D]">
+                  Clique no botão para ir para os próximos passos.
+                </p>
               </DialogDescription>
             </DialogHeader>
             <form
@@ -821,18 +859,21 @@ export function RoletaForm({
                         id="favicon"
                         type="file"
                         onChange={(e) => handleFileUpload(e, setFaviconUrl)}
-                        
-                      />                     
-                        {faviconUrl ? (
-                          <a
-                            key={step}
-                            href={faviconUrl}
-                            className="text-[0.7rem] cursor-pointer text-blue-900"
-                            target="_blank"
-                          >
-                            {faviconUrl}
-                          </a>
-                        ): <span className="text-red-500">Favicon obrigatorio!</span>}                    
+                      />
+                      {faviconUrl ? (
+                        <a
+                          key={step}
+                          href={faviconUrl}
+                          className="text-[0.7rem] cursor-pointer text-blue-900"
+                          target="_blank"
+                        >
+                          {faviconUrl}
+                        </a>
+                      ) : (
+                        <span className="text-red-500">
+                          Favicon obrigatorio!
+                        </span>
+                      )}
                     </div>
                   </>
                 )}
@@ -1016,7 +1057,11 @@ export function RoletaForm({
                           <Input
                             id="optionText"
                             value={editIndex !== null ? editText : optionText}
-                            onChange={(e) => editIndex !== null ? setEditText(e.target.value) : setOptionText(e.target.value)}
+                            onChange={(e) =>
+                              editIndex !== null
+                                ? setEditText(e.target.value)
+                                : setOptionText(e.target.value)
+                            }
                           />
                         </div>
                         <div className="flex flex-col">
@@ -1026,8 +1071,16 @@ export function RoletaForm({
                           <Input
                             className={`${errorsStep2.probability ? "border-red-600" : ""}`}
                             id="probability"
-                            value={editIndex !== null ? editProbability : optionProbability}
-                            onChange={(e) => editIndex !== null ? setEditProbability(e.target.value) : setOptionProbability(e.target.value)}
+                            value={
+                              editIndex !== null
+                                ? editProbability
+                                : optionProbability
+                            }
+                            onChange={(e) =>
+                              editIndex !== null
+                                ? setEditProbability(e.target.value)
+                                : setOptionProbability(e.target.value)
+                            }
                           />
                         </div>
                         <div className="flex flex-col min-w-max items-end">
@@ -1039,88 +1092,102 @@ export function RoletaForm({
                             type="color"
                             id="corOption"
                             value={editIndex !== null ? editColor : optionColor}
-                            onChange={(e) => editIndex !== null ? setEditColor(e.target.value) : setOptionColor(e.target.value)}
+                            onChange={(e) =>
+                              editIndex !== null
+                                ? setEditColor(e.target.value)
+                                : setOptionColor(e.target.value)
+                            }
                           />
                         </div>
                         <PlusCircle
                           className="cursor-pointer"
                           size={50}
-                          onClick={editIndex !== null ? saveEditOption : addOption}
+                          onClick={
+                            editIndex !== null ? saveEditOption : addOption
+                          }
                         />
                       </div>
                     </div>
                     <div className="flex flex-col gap-1 max-h-52 overflow-auto cursor-pointer cursor-grab">
-      {options.map((option, index) => (
-        <div key={option.text}>
-          <div
-            className={`flex items-center justify-between ${isGrabbing ? 'cursor-grabbing' : 'cursor-grab'}`}
-            draggable
-            onDragStart={() => handleDragStart(index)}
-            onDragEnter={() => handleDragEnter(index)}
-            onDragEnd={() => {
-              draggingItem.current = null;
-              handleMouseUp();
-            }}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-          >
-            <div className="flex flex-col">
-              <div className="flex gap-2 items-center">
-                <h3 className="text-sm">{`Item ${index + 1}:`}</h3>
-                <h3 className="font-semibold">{option.text}</h3>
-              </div>
-              <div className="flex gap-2 items-center">
-                <h3 className="text-sm">Probabilidade:</h3>
-                <h3 className="font-semibold">{option.percentage}</h3>
-              </div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-sm">Cor:</h3>
-                <div className="w-4 h-4 mr-2 border" style={{ backgroundColor: option.background }} />
-              </div>
-            </div>
-            <div className="flex items-center">
-            <Button
-                variant="ghost"
-                type="button"
-                onClick={() => startEditOption(index)}
-                >
-                <Edit/>
-              </Button>
-              <div className="m-2">
-                {filledOptions[index] ? (
-                  <Verified size={20} color="#00ff00" />
-                ) : (
-                  <AlertCircleIcon size={20} color="#e6b01bdb" />
-                )}
-              </div>
-              <Button
-                variant="ghost"
-                type="button"
-                onClick={() => handleDuplicate(index)}
-              >
-                <CopyPlus />
-              </Button>
-              <Button
-                variant="ghost"
-                type="button"
-                onClick={() => handleSettingsClick(index)}
-              >
-                <Settings />
-              </Button>
-              <Button
-                variant="ghost"
-                type="button"
-                onClick={() => handleDeleteOption(index)}
-              >
-                <Trash />
-              </Button>
-            </div>
-          </div>
-          <Separator />
-        </div>
-      ))}
-    </div>
+                      {options.map((option, index) => (
+                        <div key={option.text}>
+                          <div
+                            className={`flex items-center justify-between ${isGrabbing ? "cursor-grabbing" : "cursor-grab"}`}
+                            draggable
+                            onDragStart={() => handleDragStart(index)}
+                            onDragEnter={() => handleDragEnter(index)}
+                            onDragEnd={() => {
+                              draggingItem.current = null;
+                              handleMouseUp();
+                            }}
+                            onMouseDown={handleMouseDown}
+                            onMouseUp={handleMouseUp}
+                            onMouseLeave={handleMouseUp}
+                          >
+                            <div className="flex flex-col">
+                              <div className="flex gap-2 items-center">
+                                <h3 className="text-sm">{`Item ${index + 1}:`}</h3>
+                                <h3 className="font-semibold">{option.text}</h3>
+                              </div>
+                              <div className="flex gap-2 items-center">
+                                <h3 className="text-sm">Probabilidade:</h3>
+                                <h3 className="font-semibold">
+                                  {option.percentage}
+                                </h3>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <h3 className="text-sm">Cor:</h3>
+                                <div
+                                  className="w-4 h-4 mr-2 border"
+                                  style={{ backgroundColor: option.background }}
+                                />
+                              </div>
+                            </div>
+                            <div className="flex items-center">
+                              <Button
+                                variant="ghost"
+                                type="button"
+                                onClick={() => startEditOption(index)}
+                              >
+                                <Edit />
+                              </Button>
+                              <div className="m-2">
+                                {filledOptions[index] ? (
+                                  <Verified size={20} color="#00ff00" />
+                                ) : (
+                                  <AlertCircleIcon
+                                    size={20}
+                                    color="#e6b01bdb"
+                                  />
+                                )}
+                              </div>
+                              <Button
+                                variant="ghost"
+                                type="button"
+                                onClick={() => handleDuplicate(index)}
+                              >
+                                <CopyPlus />
+                              </Button>
+                              <Button
+                                variant="ghost"
+                                type="button"
+                                onClick={() => handleSettingsClick(index)}
+                              >
+                                <Settings />
+                              </Button>
+                              <Button
+                                variant="ghost"
+                                type="button"
+                                onClick={() => handleDeleteOption(index)}
+                              >
+                                <Trash />
+                              </Button>
+                            </div>
+                          </div>
+                          <Separator />
+                        </div>
+                      ))}
+                    </div>
                   </>
                 )}
               </div>
@@ -1134,11 +1201,17 @@ export function RoletaForm({
                     Voltar
                   </Button>
                 )}
-                <Button type="submit" disabled={isLoading}>
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="bg-[#1D3557] hover:bg-[#152a45] text-white"
+                >
                   {isLoading ? (
                     <Loader2 className="h-[100%] w-[100%] animate-spin" />
+                  ) : step < 2 ? (
+                    "Próximo"
                   ) : (
-                    step < 2 ? "Próximo" : "Finalizar"
+                    "Finalizar"
                   )}
                 </Button>
               </DialogFooter>
@@ -1162,7 +1235,7 @@ export function RoletaForm({
             <form
               className="flex flex-col gap-4"
               onSubmit={handleSubmitDialog((data) =>
-                handleOptionDialogSubmit(isDialogOpen, data)
+                handleOptionDialogSubmit(isDialogOpen, data),
               )}
             >
               <div className="flex justify-between">
