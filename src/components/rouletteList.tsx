@@ -3,8 +3,7 @@ import {
   deleteRoulette,
   duplicateRoulette,
   fetchRouletteBySlug,
-  fetchRouletteCustomization,
-  fetchRoulettes,
+  fetchRouletteCustomization
 } from "@/service/roulette";
 import { RouletteForm1, RouletteForm2 } from "@/types/Roulette";
 import { RouletteSlugResponse } from "@/types/rouletteslug.type";
@@ -188,18 +187,18 @@ export function RouletteList({
                   <div className="flex justify-evenly">
                     <CopyPlus
                       size={20}
-                      className="cursor-pointer text-blue-600 hover:text-blue-800"
+                      className="cursor-pointer"
                       onClick={() => handleDuplicate(roulette.slug)}
                     />
                     <Pencil
                       size={20}
-                      className="cursor-pointer text-green-600 hover:text-green-800"
+                      className="cursor-pointer "
                       onClick={() => handleEdit(roulette.slug)}
                     />
                     <Link
                       size={20}
                       onClick={() => handleCopy(roulette.slug)}
-                      className="cursor-pointer text-purple-600 hover:text-purple-800"
+                      className="cursor-pointer "
                     />
                     <DeleteConfirmationModal
                       setConfirmationDelete={() => handleRemove(roulette.slug)}

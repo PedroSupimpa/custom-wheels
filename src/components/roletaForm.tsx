@@ -98,180 +98,189 @@ const defaultValues = {
     options: [
       {
         text: "Sem Prêmio",
-        background: "#E63946",
+        textColor: "#FFFFFF",       // White text for contrast on the vibrant red background
+        background: "#E74C3C",        // Vibrant Red
         percentage: 12,
         confirmationDialog: {
           title: "Poxa, não foi dessa vez!",
           linkTo: "#",
           subtitle: "Não desista, tente novamente!",
           buttonText: "TENTAR NOVAMENTE",
-          titleColor: "#E63946",
+          titleColor: "#E74C3C",     // Match the slice’s energetic red
           description: "Continue tentando para ganhar prêmios incríveis!",
-          subtitleColor: "#1D3557",
-          backgroundColor: "#F1FAEE",
+          subtitleColor: "#E74C3C",
+          backgroundColor: "#FFFFFF", // Clean white for clear readability
           backgroundImage:
-            "https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=600&q=80",
-          buttonTextColor: "#ffffff",
-          buttonBackground: "#E63946",
-          descriptionColor: "#457B9D",
+            "https://img.freepik.com/premium-vector/pedestal-rewarding-winners-white-podium-platform-with-spotlights_257584-2320.jpg",
+          buttonTextColor: "#FFFFFF",
+          buttonBackground: "#C0392B", // A slightly darker red for button contrast
+          descriptionColor: "#333333",
         },
       },
       {
         text: "10% OFF",
-        background: "#457B9D",
+        textColor: "#FFFFFF",
+        background: "#2ECC71",       // Vibrant Green
         percentage: 30,
         confirmationDialog: {
           title: "Parabéns!",
           linkTo: "#",
           subtitle: "Você ganhou 10% de desconto na sua próxima compra!",
           buttonText: "RESGATAR PRÊMIO",
-          titleColor: "#1D3557",
+          titleColor: "#2ECC71",
           description: "Use o código PREMIO10 no checkout.",
-          subtitleColor: "#1D3557",
-          backgroundColor: "#F1FAEE",
+          subtitleColor: "#2ECC71",
+          backgroundColor: "#FFFFFF",
           backgroundImage:
-            "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&q=80",
-          buttonTextColor: "#ffffff",
-          buttonBackground: "#457B9D",
-          descriptionColor: "#457B9D",
+            "https://img.freepik.com/premium-vector/pedestal-rewarding-winners-white-podium-platform-with-spotlights_257584-2320.jpg",
+          buttonTextColor: "#FFFFFF",
+          buttonBackground: "#27AE60", // Slightly deeper green for emphasis
+          descriptionColor: "#333333",
         },
       },
       {
         text: "25% OFF",
-        background: "#1D3557",
+        textColor: "#FFFFFF",
+        background: "#F39C12",       // Vibrant Orange
         percentage: 15,
         confirmationDialog: {
           title: "Parabéns!",
           linkTo: "#",
           subtitle: "Você ganhou 25% de desconto na sua próxima compra!",
           buttonText: "RESGATAR PRÊMIO",
-          titleColor: "#1D3557",
+          titleColor: "#F39C12",
           description: "Use o código PREMIO25 no checkout.",
-          subtitleColor: "#1D3557",
-          backgroundColor: "#F1FAEE",
+          subtitleColor: "#F39C12",
+          backgroundColor: "#FFFFFF",
           backgroundImage:
-            "https://images.unsplash.com/photo-1607344645866-009c320c5ab0?w=600&q=80",
-          buttonTextColor: "#ffffff",
-          buttonBackground: "#1D3557",
-          descriptionColor: "#457B9D",
+            "https://img.freepik.com/premium-vector/pedestal-rewarding-winners-white-podium-platform-with-spotlights_257584-2320.jpg",
+          buttonTextColor: "#FFFFFF",
+          buttonBackground: "#E67E22", // Deeper orange for button
+          descriptionColor: "#333333",
         },
       },
       {
         text: "R$ 5,00",
-        background: "#A8DADC",
+        textColor: "#FFFFFF",
+        background: "#3498DB",       // Vibrant Blue
         percentage: 20,
         confirmationDialog: {
           title: "Parabéns!",
           linkTo: "#",
           subtitle: "Você ganhou R$5,00 de crédito!",
           buttonText: "RESGATAR PRÊMIO",
-          titleColor: "#1D3557",
+          titleColor: "#3498DB",
           description: "Use o código CREDITO5 no checkout.",
-          subtitleColor: "#1D3557",
-          backgroundColor: "#F1FAEE",
+          subtitleColor: "#3498DB",
+          backgroundColor: "#FFFFFF",
           backgroundImage:
-            "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80",
-          buttonTextColor: "#ffffff",
-          buttonBackground: "#A8DADC",
-          descriptionColor: "#457B9D",
+            "https://img.freepik.com/premium-vector/pedestal-rewarding-winners-white-podium-platform-with-spotlights_257584-2320.jpg",
+          buttonTextColor: "#FFFFFF",
+          buttonBackground: "#2980B9", // Darker blue for the button
+          descriptionColor: "#333333",
         },
       },
       {
         text: "R$ 10,00",
-        background: "#1D3557",
+        textColor: "#FFFFFF",
+        background: "#9B59B6",       // Vibrant Purple
         percentage: 10,
         confirmationDialog: {
           title: "Parabéns!",
           linkTo: "#",
           subtitle: "Você ganhou R$10,00 de crédito!",
           buttonText: "RESGATAR PRÊMIO",
-          titleColor: "#1D3557",
+          titleColor: "#9B59B6",
           description: "Use o código CREDITO10 no checkout.",
-          subtitleColor: "#1D3557",
-          backgroundColor: "#F1FAEE",
+          subtitleColor: "#9B59B6",
+          backgroundColor: "#FFFFFF",
           backgroundImage:
-            "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=600&q=80",
-          buttonTextColor: "#ffffff",
-          buttonBackground: "#1D3557",
-          descriptionColor: "#457B9D",
+            "https://img.freepik.com/premium-vector/pedestal-rewarding-winners-white-podium-platform-with-spotlights_257584-2320.jpg",
+          buttonTextColor: "#FFFFFF",
+          buttonBackground: "#8E44AD", // A slightly darker purple for contrast
+          descriptionColor: "#333333",
         },
       },
       {
         text: "R$ 20,00",
-        background: "#457B9D",
+        textColor: "#FFFFFF",
+        background: "#FF1493",       // Vibrant Pink
         percentage: 5,
         confirmationDialog: {
           title: "Parabéns!",
           linkTo: "#",
           subtitle: "Você ganhou R$20,00 de crédito!",
           buttonText: "RESGATAR PRÊMIO",
-          titleColor: "#1D3557",
+          titleColor: "#FF1493",
           description: "Use o código CREDITO20 no checkout.",
-          subtitleColor: "#1D3557",
-          backgroundColor: "#F1FAEE",
+          subtitleColor: "#FF1493",
+          backgroundColor: "#FFFFFF",
           backgroundImage:
-            "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=600&q=80",
-          buttonTextColor: "#ffffff",
-          buttonBackground: "#457B9D",
-          descriptionColor: "#457B9D",
+            "https://img.freepik.com/premium-vector/pedestal-rewarding-winners-white-podium-platform-with-spotlights_257584-2320.jpg",
+          buttonTextColor: "#FFFFFF",
+          buttonBackground: "#D81B60", // A richer pink for button emphasis
+          descriptionColor: "#333333",
         },
       },
       {
         text: "FRETE GRÁTIS",
-        background: "#E63946",
+        textColor: "#FFFFFF",
+        background: "#1ABC9C",       // Vibrant Cyan
         percentage: 8,
         confirmationDialog: {
           title: "Parabéns!",
           linkTo: "#",
           subtitle: "Você ganhou frete grátis para sua próxima compra!",
           buttonText: "RESGATAR PRÊMIO",
-          titleColor: "#1D3557",
+          titleColor: "#1ABC9C",
           description: "Use o código FRETEGRATIS no checkout.",
-          subtitleColor: "#1D3557",
-          backgroundColor: "#F1FAEE",
+          subtitleColor: "#1ABC9C",
+          backgroundColor: "#FFFFFF",
           backgroundImage:
-            "https://images.unsplash.com/photo-1586769852836-bc069f19e1be?w=600&q=80",
-          buttonTextColor: "#ffffff",
-          buttonBackground: "#E63946",
-          descriptionColor: "#457B9D",
+            "https://img.freepik.com/premium-vector/pedestal-rewarding-winners-white-podium-platform-with-spotlights_257584-2320.jpg",
+          buttonTextColor: "#FFFFFF",
+          buttonBackground: "#16A085", // Slightly deeper cyan
+          descriptionColor: "#333333",
         },
       },
       {
         text: "BRINDE SURPRESA",
-        background: "#A8DADC",
+        textColor: "#000000",       // Black text for readability on vibrant yellow
+        background: "#FFD700",       // Vibrant gold/yellow
         percentage: 0.5,
         confirmationDialog: {
           title: "Parabéns!",
           linkTo: "#",
           subtitle: "Você ganhou um brinde surpresa!",
           buttonText: "RESGATAR PRÊMIO",
-          titleColor: "#1D3557",
+          titleColor: "#FFD700",
           description: "Use o código SURPRESA no checkout.",
-          subtitleColor: "#1D3557",
-          backgroundColor: "#F1FAEE",
+          subtitleColor: "#FFD700",
+          backgroundColor: "#FFFFFF",
           backgroundImage:
-            "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&q=80",
-          buttonTextColor: "#ffffff",
-          buttonBackground: "#A8DADC",
-          descriptionColor: "#457B9D",
+            "https://img.freepik.com/premium-vector/pedestal-rewarding-winners-white-podium-platform-with-spotlights_257584-2320.jpg",
+          buttonTextColor: "#000000",
+          buttonBackground: "#FFC107", // A bold amber for the button
+          descriptionColor: "#333333",
         },
       },
     ],
   },
   logoImage:
-    "https://images.unsplash.com/photo-1596367407372-96cb88503db6?w=300&q=80",
-  colorTitle: "#1D3557",
+    "https://sdmntprwestus.oaiusercontent.com/files/00000000-8c98-6230-92a2-e60463118549/raw?se=2025-04-09T16%3A03%3A20Z&sp=r&sv=2024-08-04&sr=b&scid=c99201b7-59cb-5ae7-963c-b76708ccabcc&skoid=aa8389fc-fad7-4f8c-9921-3c583664d512&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-09T04%3A08%3A18Z&ske=2025-04-10T04%3A08%3A18Z&sks=b&skv=2024-08-04&sig=F4MLOpdWZJN93xDrQX4K1js5uzW/Fr5F2pGoG7ULDP8%3D",
+  colorTitle: "#000000",
   spinButton: {
     text: "Girar Roleta",
     textColor: "#ffffff",
-    background: "#E63946",
+    background: "#E74C3C", // Matches the vibrant red of "Sem Prêmio"
   },
   description: "Gire a roleta e ganhe prêmios incríveis!",
-  backgroundColor: "#F1FAEE",
+  backgroundColor: "#FFFFFF",  // A fresh white backdrop
   backgroundImage:
-    "https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=800&q=80",
-  colorDescription: "#457B9D",
+    "https://t3.ftcdn.net/jpg/04/12/82/16/360_F_412821610_95RpjzPXCE2LiWGVShIUCGJSktkJQh6P.jpg",
+  colorDescription: "#333333",
 };
+
 
 export function RoletaForm({
   isOpenForm,
@@ -290,7 +299,7 @@ export function RoletaForm({
   const [isDialogOpen, setIsDialogOpen] = useState<number | null>(null);
   const [filledOptions, setFilledOptions] = useState<boolean[]>([]);
   const [faviconUrl, setFaviconUrl] = useState<string>(
-    "https://images.unsplash.com/photo-1596367407372-96cb88503db6?w=100&q=80",
+    "https://cdn-icons-png.flaticon.com/512/4992/4992618.png",
   );
   const [backgroundImageUrl, setBackgroundImageUrl] = useState<string>("");
   const [logoImageUrl, setLogoImageUrl] = useState<string>("");
@@ -396,7 +405,7 @@ export function RoletaForm({
               option.confirmationDialog.description !==
                 "Clique no botão para resgatar seu prêmio!" &&
               option.confirmationDialog.buttonText !== "Resgatar" &&
-              option.confirmationDialog.linkTo !== "https://playsux.com/"
+              option.confirmationDialog.linkTo !== ""
             ),
         ),
       );
@@ -454,7 +463,7 @@ export function RoletaForm({
             buttonBackground: "#388623",
             backgroundColor: "#524e4e",
             backgroundImage: "",
-            linkTo: "https://playsux.com/",
+            linkTo: "",
           },
         },
       ]);
@@ -713,7 +722,7 @@ export function RoletaForm({
     setLogoImageUrl(defaultValues.logoImage);
     setBackgroundImageUrl(defaultValues.backgroundImage);
     setFaviconUrl(
-      "https://images.unsplash.com/photo-1596367407372-96cb88503db6?w=100&q=80",
+      "https://cdn-icons-png.flaticon.com/512/4992/4992618.png",
     );
     setStep1Data(null);
     setStep2Data(defaultValues);
@@ -799,22 +808,22 @@ export function RoletaForm({
               setIsEditMode(false);
               setIsOpenForm(true);
             }}
-            className="bg-[#E63946] hover:bg-[#c62b37] text-white"
+            className=" text-white"
           >
             Adicionar roleta
           </Button>
           <DialogContent className="max-w-[100vw] sm:max-w-[625px] max-h-[90vh] overflow-auto">
             <DialogHeader>
-              <DialogTitle className="text-[#1D3557]">
+              <DialogTitle className="">
                 {isEditMode ? "Editar roleta" : "Criar nova roleta"}
               </DialogTitle>
               <DialogDescription>
-                <p className="text-[#457B9D]">
+                <p className="">
                   {isEditMode
                     ? "Edite sua roleta personalizada."
                     : "Crie sua nova roleta personalizada."}
                 </p>
-                <p className="text-[#457B9D]">
+                <p className="">
                   Clique no botão para ir para os próximos passos.
                 </p>
               </DialogDescription>
@@ -1204,7 +1213,7 @@ export function RoletaForm({
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="bg-[#1D3557] hover:bg-[#152a45] text-white"
+                  className=" "
                 >
                   {isLoading ? (
                     <Loader2 className="h-[100%] w-[100%] animate-spin" />
