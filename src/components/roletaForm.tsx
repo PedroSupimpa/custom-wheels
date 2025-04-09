@@ -531,7 +531,7 @@ export function RoletaForm({
         } else {
           setToastState({
             message: `Erro atualizando roleta: ${
-              response.message || response.status
+              response.data.message || response.status
             }`,
             type: "error",
           });
@@ -552,7 +552,7 @@ export function RoletaForm({
         } else {
           setToastState({
             message: `Erro adicionando roleta: ${
-              response.message || response.statusText
+              response.data.message || response.status
             }`,
             type: "error",
           });

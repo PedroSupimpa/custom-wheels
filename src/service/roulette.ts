@@ -59,7 +59,7 @@ export const fetchRouletteBySlug = async (slug: string) => {
 
   // Get the customization data
   const customizationKey = `roulette_${slug}_customization`;
-  const customization = getFromStorage(customizationKey, {});
+  const customization: any = getFromStorage(customizationKey, {});
 
   const response: RouletteSlugResponse = {
     status: 200,

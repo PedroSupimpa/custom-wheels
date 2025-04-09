@@ -105,7 +105,7 @@ export function RouletteList({
   const fetchCustomizationData = async (slug: string): Promise<string[]> => {
     try {
       const response = await fetchRouletteCustomization(slug);
-      const data: RouletteForm2 = response.data;
+      const data: RouletteForm2 = response.data as RouletteForm2;
       return data?.roulette?.options?.map((option) => option.text) || [];
     } catch (error) {
       console.error("Error fetching customization data", error);
