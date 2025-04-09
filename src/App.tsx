@@ -1,13 +1,13 @@
 import { Loader2 } from "lucide-react";
 import { Suspense } from "react";
-import { Routes, useRoutes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
+import tempoRoutes from "tempo-routes";
 import { Toaster } from "./components/ui/toaster";
 import routes from "./routes/routes";
-import tempoRoutes from "tempo-routes";
 
 const App = () => {
   const elements = useRoutes(routes);
-  // Add Tempo routes when in Tempo environment
+
   const tempoElements = import.meta.env.VITE_TEMPO
     ? useRoutes(tempoRoutes)
     : null;
